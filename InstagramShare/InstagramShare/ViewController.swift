@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func ButtonPressed(_ sender: Any) {
-        //firstSolutionOption()
+        //firstSolutionOption_image()
         //secondSolutionOption_image()
         //secondSolutionOption_video()
     }
