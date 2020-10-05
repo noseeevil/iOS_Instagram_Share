@@ -62,9 +62,10 @@
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-    		<string>instagram</string>
+		<string>instagram</string>
+		<string>instagram-stories</string>
 	</array>
-	<key>NSPhotoLibraryAddUsageDescription</key>
+	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app wants to take pictures.</string>
 </dict>
 </plist>

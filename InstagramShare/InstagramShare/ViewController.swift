@@ -6,21 +6,24 @@ class ViewController: UIViewController {
     
     @IBOutlet var CurrentImgView: UIImageView!
     
-    var image: UIImage = UIImage()
+    var imageKitty: UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        image = UIImage(named: "Kitty.jpeg")!
-        CurrentImgView.image = image
+        imageKitty = UIImage(named: "Kitty.jpeg")!
+        CurrentImgView.image = imageKitty
     }
     
     @IBAction func ButtonPressed(_ sender: Any) {
-        postImageToInstagram(image: image)
+        //firstSolutionOption()
+        //secondSolutionOption_image()
+        //secondSolutionOption_video()
     }
     
-    func postImageToInstagram(image: UIImage) {
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    //share to post or stories and save
+    func firstSolutionOption_image() {
+        UIImageWriteToSavedPhotosAlbum(imageKitty, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
@@ -31,13 +34,11 @@ class ViewController: UIViewController {
             let fetchOptions = PHFetchOptions()
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
 
-            let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
 
             if let lastAsset = fetchResult.firstObject as? PHAsset {
 
                let url = URL(string: "instagram://library?LocalIdentifier=\(lastAsset.localIdentifier)")!
-                print("123: \(lastAsset.localIdentifier)")
-
                 if UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url)
                 } else {
@@ -49,5 +50,40 @@ class ViewController: UIViewController {
             }
     }
 
+    //share img to stories
+    func secondSolutionOption_image() {
+        if let urlScheme = URL(string: "instagram-stories://share") {
+            if UIApplication.shared.canOpenURL(urlScheme) {
+                let imageData: Data = imageKitty.pngData()!
+                let items = [["com.instagram.sharedSticker.backgroundImage": imageData]]
+                let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60*5)]
+                UIPasteboard.general.setItems(items, options: pasteboardOptions)
+                UIApplication.shared.open(urlScheme, options: [:], completionHandler: nil)
+            }
+        }
+    }
+    
+    //share video to stories
+    func secondSolutionOption_video() {
+        if let urlScheme = URL(string: "instagram-stories://share") {
+            if UIApplication.shared.canOpenURL(urlScheme) {
+                guard let urlString = Bundle.main.path(forResource: "hyperlapse", ofType: "mov") else { return }
+                let urlVideo = URL(fileURLWithPath: urlString)
+                
+                let videoData:Data?
+                
+                do {
+                    try videoData = Data(contentsOf: urlVideo)
+                    let items = [["com.instagram.sharedSticker.backgroundVideo": videoData]]
+                    let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60*5)]
+                    UIPasteboard.general.setItems(items, options: pasteboardOptions)
+                    UIApplication.shared.open(urlScheme, options: [:], completionHandler: nil)
+                }
+                catch { print("Cannot open \(urlVideo)") }
+            }
+        }
+    }
 }
+
+
 

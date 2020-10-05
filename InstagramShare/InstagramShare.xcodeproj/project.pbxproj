@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0742C46252B46520018FE88 /* hyperlapse.mov in Resources */ = {isa = PBXBuildFile; fileRef = C0742C45252B46520018FE88 /* hyperlapse.mov */; };
 		C09ADA20250BB3EC00CD2EFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09ADA1F250BB3EC00CD2EFA /* AppDelegate.swift */; };
 		C09ADA22250BB3EC00CD2EFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09ADA21250BB3EC00CD2EFA /* SceneDelegate.swift */; };
 		C09ADA24250BB3EC00CD2EFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09ADA23250BB3EC00CD2EFA /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C0742C45252B46520018FE88 /* hyperlapse.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = hyperlapse.mov; sourceTree = "<group>"; };
 		C09ADA1C250BB3EC00CD2EFA /* InstagramShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09ADA1F250BB3EC00CD2EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C09ADA21250BB3EC00CD2EFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				C09ADA21250BB3EC00CD2EFA /* SceneDelegate.swift */,
 				C09ADA23250BB3EC00CD2EFA /* ViewController.swift */,
 				C09ADA33250BB49700CD2EFA /* Kitty.jpeg */,
+				C0742C45252B46520018FE88 /* hyperlapse.mov */,
 				C09ADA25250BB3EC00CD2EFA /* Main.storyboard */,
 				C09ADA28250BB3EC00CD2EFA /* Assets.xcassets */,
 				C09ADA2A250BB3EC00CD2EFA /* LaunchScreen.storyboard */,
@@ -130,6 +133,7 @@
 			files = (
 				C09ADA2C250BB3EC00CD2EFA /* LaunchScreen.storyboard in Resources */,
 				C09ADA29250BB3EC00CD2EFA /* Assets.xcassets in Resources */,
+				C0742C46252B46520018FE88 /* hyperlapse.mov in Resources */,
 				C09ADA27250BB3EC00CD2EFA /* Main.storyboard in Resources */,
 				C09ADA34250BB49700CD2EFA /* Kitty.jpeg in Resources */,
 			);
